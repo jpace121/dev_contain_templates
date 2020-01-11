@@ -1,0 +1,4 @@
+template: 'rust.Dockerfile.template'
+base_image: 'jwp-build-latest'
+image_name: 'jwp-rustlang-latest'
+save_docker: false

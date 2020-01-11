@@ -1,0 +1,12 @@
+FROM {{ base_image }}
+
+RUN sudo apt update -y && \
+    sudo apt install -y ruby-full \
+                        build-essential \
+                        zlib1g-dev
+
+RUN echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc \
+    echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc \
+    echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc \
+    source ~/.bashrc
+RUN sudo gem install jekyll bundler

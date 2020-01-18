@@ -1,4 +1,4 @@
 template: 'base-fedora.sh.template'
 base_image: 'fedora:31'
-image_name: 'jwp-fedora-latest'
+image_name: 'jwp-fedora'
 save_docker: false

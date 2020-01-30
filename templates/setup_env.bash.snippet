@@ -7,5 +7,4 @@ buildah run --user {{ username }} $container -- bash -c "echo 'alias emc='\''ema
 buildah config --env TERM=xterm-256color $container
 
 echo "==> Setting git config."
-buildah run --user {{ username }} $container -- git config --global user.name "James Pace"
-buildah run --user {{ username }} $container -- git config --global user.email "jpace121@gmail.com"
+buildah copy --chown {{ username }}:{{ user_id }} $container '{{ template_dir }}/config/gitconfig' '/home/{{ username }}/.gitconfig'

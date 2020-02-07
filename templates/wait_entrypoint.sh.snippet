@@ -1,4 +1,4 @@
-echo "==> Set tmux as entry point."
-buildah copy $container '{{ template_dir }}/entrypoints/wait.bash' '/wait.bash'
-buildah config --entrypoint '["/wait.bash"]' $container
+echo "==> Set entrypoint."
+buildah copy $container '{{ template_dir }}/entrypoints/dev_contain_init' '/dev/dev_contain_init'
+buildah config --entrypoint '["/dev_contain_init"]' $container
 buildah config --cmd '' $container

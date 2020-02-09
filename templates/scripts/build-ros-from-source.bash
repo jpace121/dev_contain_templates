@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+# Based on script in:
+#   https://index.ros.org/doc/ros2/Installation/Eloquent/Linux-Development-Setup/
+# which is licensed under CC-BY-3.0:
+#   https://creativecommons.org/licenses/by/3.0/
 # Build ROS 2 Eloquent from scratch.
 sudo apt update -y && sudo apt install -y curl gnupg2 lsb-release
 curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -

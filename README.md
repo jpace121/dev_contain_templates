@@ -6,10 +6,10 @@ Templates and configuration files for building containers using
 ## License
 All content is Apache 2.0 unless otherwise noted.
 
-`./templates/entrypoints/dev_contain_init` binary is generated from
+The `./templates/entrypoints/dev_contain_init` binary is compiled from
 source hosted [here](https://github.com/jpace121/dev_contain_init)
 and is released under the Apache 2.0 License.
 
-`templates/scripts/build-ros-from-source.bash` is based on the
+`./templates/scripts/build-ros-from-source.bash` is based on the
 install instructions from ros.org, which are released under the
 CC-BY-3.0 License.

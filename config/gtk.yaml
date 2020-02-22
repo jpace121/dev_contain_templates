@@ -1,0 +1,7 @@
+template: 'apt-only.Dockerfile.template'
+base_image: 'jwp-build'
+image_name: 'jwp-gtk'
+packages:
+   - cmake
+   - libgtkmm-3.0-dev
+   - glade

@@ -1,0 +1,11 @@
+FROM {{ base_image }}
+
+RUN sudo apt update -y && \
+    sudo apt install -y \
+    {%- for package in packages %}
+        {%- if not loop.last %}
+        {{ package }} \
+        {%- else %}
+        {{ package }}
+        {% endif -%}
+    {%- endfor -%}

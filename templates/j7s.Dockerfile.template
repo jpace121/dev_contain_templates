@@ -15,7 +15,10 @@ RUN bash -c 'export DEBIAN_FRONTEND=noninteractive && \
                             wget \
                             openssh-client \
                             gpiod \
-                            libgpiod-dev'
+                            libgpiod-dev\
+                            gradle \
+                            default-jre \
+                            default-jdk'
 
 # Set up user.
 {% include 'setup-user-ubuntu.Dockerfile.snippet' %}

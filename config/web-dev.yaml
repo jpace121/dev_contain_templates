@@ -1,0 +1,8 @@
+template: 'apt-only.Dockerfile.template'
+base_image: 'jwp-build'
+image_name: 'jwp-webdev'
+packages:
+   - nodejs
+   - npm
+   - leiningen
+   - clojure

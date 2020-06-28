@@ -1,0 +1,30 @@
+# Build a base development image for development.
+FROM {{ base_image }}
+
+# System Dependencies
+RUN bash -c 'dnf install -y emacs-nox \
+                            vim-minimal \
+                            git \
+                            tmux \
+                            the_silver_searcher'
+
+# Set up user.
+RUN useradd -m -G wheel -s /bin/bash -u {{ user_id }} {{ username }}
+RUN bash -c 'echo "%wheel  ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers.d/container'
+RUN chmod 0440 /etc/sudoers.d/container
+# So we don't get bothered first call to sudo
+RUN touch /home/{{ username }}/.sudo_as_admin_successful
+
+# Set up entrypoint.
+{% include 'wait_entrypoint.Dockerfile.snippet' %}
+
+# Set up attach command.
+COPY scripts/tmux-attach.bash /tmux-attach
+ENV DEV_CONTAIN_ATTACH_CMD=/tmux-attach
+
+# Change user and set up environment.
+USER {{ username }}
+{% include 'setup_env.Dockerfile.snippet' %}
+
+# Set label
+{% include 'dev_contain_label.Dockerfile.snippet' %}

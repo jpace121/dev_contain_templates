@@ -1,0 +1,10 @@
+FROM {{ base_image }}
+
+RUN sudo dnf install -y \
+    {%- for package in packages %}
+        {%- if not loop.last %}
+        {{ package }} \
+        {%- else %}
+        {{ package }}
+        {% endif -%}
+    {%- endfor -%}

@@ -1,4 +1,3 @@
 template: 'base.Dockerfile.template'
 base_image: 'osrf/ros2:nightly'
 image_name: 'jwp-ros2'
-save_docker: false

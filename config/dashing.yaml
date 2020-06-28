@@ -1,4 +1,3 @@
 template: 'base.Dockerfile.template'
 base_image: 'ros:dashing-ros-base'
 image_name: 'jwp-dashing'
-save_docker: false

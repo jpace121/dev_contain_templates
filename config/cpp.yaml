@@ -1,4 +1,7 @@
-template: 'cpp.sh.template'
+template: 'apt-only.Dockerfile.template'
 base_image: 'jwp-build'
 image_name: 'jwp-cpp'
-save_docker: false
+packages:
+    - cmake
+    - clang
+    - libboost-all-dev

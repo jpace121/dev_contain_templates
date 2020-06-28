@@ -1,0 +1,8 @@
+FROM {{ base_image }}
+
+RUN sudo apt update -y && \
+    sudo apt install -y golang
+
+RUN sudo /bin/bash -c 'touch /etc/profile.d/golang.sh && \
+                       echo "export PATH=$PATH:/usr/local/go/bin" >> /etc/profile.d/golang.sh && \
+                       echo "export GOPATH={{ go_path }}" >> /etc/profile.d/golang.sh'

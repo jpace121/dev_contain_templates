@@ -1,0 +1,5 @@
+template: 'dnf-only.Dockerfile.template'
+base_image: 'jwp-fedora'
+image_name: 'jwp-latex'
+packages:
+   - texlive-scheme-basic

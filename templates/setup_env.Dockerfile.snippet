@@ -1,6 +1,7 @@
 # Clone emacs config.
 RUN git clone git://github.com/jpace121/evil-ed.git /home/{{ username }}/.emacs.d && \
-    bash -c "echo 'alias emc='\''emacsclient -t --alternate-editor=\"\"'\''' >> ~/.bashrc"
+    bash -c "echo 'alias emc='\''emacsclient -t --alternate-editor=\"\"'\''' >> ~/.bashrc" && \
+    rm -f /home/{{ username }}/.emacs
 
 # Configure tmux.
 COPY --chown={{ username }}:{{ user_id }} config/tmux.conf /home/{{ username }}/.tmux.conf

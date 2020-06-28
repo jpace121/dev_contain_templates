@@ -1,4 +1,0 @@
-template: 'py-image.sh.template'
-base_image: 'jwp-python'
-image_name: 'jwp-pyimage'
-save_docker: false

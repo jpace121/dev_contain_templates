@@ -1,3 +1,3 @@
-template: 'j7s.Dockerfile.template'
+template: 'j7s-ros2-dds.Dockerfile.template'
 base_image: 'debian:buster'
 image_name: 'jwp-j7s'

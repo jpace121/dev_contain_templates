@@ -1,4 +1,4 @@
-# Build a base development image for development.
+# J7S Eloquent ROS2 and DDS container.
 FROM {{ base_image }}
 
 # Apt dependencies.

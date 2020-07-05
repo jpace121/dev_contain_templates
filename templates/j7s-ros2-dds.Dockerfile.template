@@ -1,4 +1,4 @@
-# J7S Eloquent ROS2 and DDS container.
+# J7S ROS2 container.
 FROM {{ base_image }}
 
 # Apt dependencies.
@@ -15,10 +15,8 @@ RUN bash -c 'export DEBIAN_FRONTEND=noninteractive && \
                             wget \
                             openssh-client \
                             gpiod \
-                            libgpiod-dev\
-                            gradle \
-                            default-jre \
-                            default-jdk'
+                            libgpiod-dev \
+                            python3-pybind11'
 
 # Set up user.
 {% include 'setup-user-ubuntu.Dockerfile.snippet' %}
@@ -36,7 +34,7 @@ USER {{ username }}
 
 # Install ROS.
 COPY scripts/build-ros-from-source.bash /build-ros-from-source.bash
-COPY scripts/eloquent-release.rosinstall /eloquent-release.rosinstall
+COPY scripts/foxy-ros2.repos /foxy-ros2.repos
 RUN /build-ros-from-source.bash
 
 # Set label

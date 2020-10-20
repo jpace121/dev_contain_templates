@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
+set -x
 # Based on script in:
 #   https://index.ros.org/doc/ros2/Installation/Eloquent/Linux-Development-Setup/
 # which is licensed under CC-BY-3.0:
 #   https://creativecommons.org/licenses/by/3.0/
 # Build ROS 2 Eloquent from scratch.
-sudo apt update -y && sudo apt install -y curl gnupg2 lsb-release
-curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+sudo apt update -y && sudo apt install -y curl gnupg2 lsb-release ca-certificates
+# rehash required because of a bug in qemu for 64bit hosting arm binaries.
+# Alternative fix is to use 32bit qemu-static-bin on 64bit host.
+# See: https://bugs.launchpad.net/qemu/+bug/1805913 and
+#      https://github.com/RPi-Distro/pi-gen/issues/271
+sudo c_rehash /etc/ssl/certs
+curl https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64,arm64] http://packages.ros.org/ros2/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list'
 
 # Apt dependencies
@@ -50,7 +56,7 @@ vcs import src < /foxy-ros2.repos
 
 sudo rosdep init
 rosdep update
-rosdep install --from-paths src --ignore-src --rosdistro eloquent -y --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers"
+rosdep install --from-paths src --ignore-src --rosdistro foxy -y --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers"
 
 cd ~/ros2_ws/
 colcon build

@@ -1,3 +1,6 @@
 template: 'j7s-ros2-dds.Dockerfile.template'
 base_image: 'debian:buster'
-image_name: 'jwp-j7s'
+image_name: 'jwp-j7s
+# For cross compile:
+#base_image: 'arm32v7/debian:buster'
+#image_name: 'jwp-j7s-arm'

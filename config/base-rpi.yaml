@@ -1,0 +1,3 @@
+template: 'arm-base.Dockerfile.template'
+base_image: 'arm32v7/debian:buster'
+image_name: 'jwp-build-arm'

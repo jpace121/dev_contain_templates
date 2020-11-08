@@ -3,6 +3,10 @@ RUN git clone git://github.com/jpace121/evil-ed.git /home/{{ username }}/.emacs.
     bash -c "echo 'alias emc='\''emacsclient -t --alternate-editor=\"\"'\''' >> ~/.bashrc" && \
     rm -f /home/{{ username }}/.emacs
 
+# Configure vim
+COPY --chown={{ username }}:{{ user_id }} config/vimrc /home/{{ username }}/.vimrc
+
+
 # Configure tmux.
 COPY --chown={{ username }}:{{ user_id }} config/tmux.conf /home/{{ username }}/.tmux.conf
 ENV TERM=xterm-256color

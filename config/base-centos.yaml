@@ -1,0 +1,3 @@
+template: 'base-centos.Dockerfile.template'
+base_image: 'quay.io/centos/centos:stream8'
+image_name: 'jwp-centos'

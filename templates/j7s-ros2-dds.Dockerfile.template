@@ -12,11 +12,11 @@ RUN bash -c 'export DEBIAN_FRONTEND=noninteractive && \
                             git \
                             tmux \
                             silversearcher-ag \
-                            wget \
                             openssh-client \
                             gpiod \
                             libgpiod-dev \
-                            python3-pybind11'
+                            python3-pybind11 \
+                            wget'
 
 # Set up user.
 {% include 'setup-user-ubuntu.Dockerfile.snippet' %}
@@ -31,11 +31,6 @@ ENV DEV_CONTAIN_ATTACH_CMD=/tmux-attach
 # Change user and set up environment.
 USER {{ username }}
 {% include 'setup_env.Dockerfile.snippet' %}
-
-# Install ROS.
-COPY scripts/build-ros-from-source.bash /build-ros-from-source.bash
-COPY scripts/foxy-ros2.repos /foxy-ros2.repos
-RUN /build-ros-from-source.bash
 
 # Set label
 {% include 'dev_contain_label.Dockerfile.snippet' %}

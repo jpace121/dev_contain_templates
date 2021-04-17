@@ -1,3 +1,3 @@
 template: 'base.Dockerfile.template'
-base_image: 'ubuntu:18.04'
+base_image: 'docker.io/library/ubuntu:18.04'
 image_name: 'jwp-1804'

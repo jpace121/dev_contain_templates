@@ -1,0 +1,5 @@
+template: 'dnf-only.Dockerfile.template'
+base_image: 'localhost/jwp-centos'
+image_name: 'jwp-dotnet'
+packages:
+   - dotnet-sdk-5.0

@@ -1,0 +1,3 @@
+template: 'j7s-ros2-dds.Dockerfile.template'
+base_image: 'docker.io/ros:rolling-ros-base'
+image_name: 'jwp-j7s-x86'

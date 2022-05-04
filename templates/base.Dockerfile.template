@@ -10,6 +10,7 @@ RUN bash -c 'export DEBIAN_FRONTEND=noninteractive && \
                             emacs-nox \
                             vim-nox \
                             git \
+                            openssh-client \
                             tmux \
                             silversearcher-ag'
 

@@ -6,7 +6,8 @@ RUN bash -c 'dnf install -y emacs-nox \
                             vim-minimal \
                             git \
                             tmux \
-                            the_silver_searcher'
+                            the_silver_searcher\
+                            findutils'
 
 # Set up user.
 RUN useradd -m -G wheel -s /bin/bash -u {{ user_id }} {{ username }}

@@ -12,6 +12,7 @@ RUN bash -c 'export DEBIAN_FRONTEND=noninteractive && \
                             git \
                             openssh-client \
                             tmux \
+                            procps \
                             silversearcher-ag'
 
 # Set up user.

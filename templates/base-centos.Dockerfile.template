@@ -1,9 +1,11 @@
 # Build a base development image for development.
 FROM {{ base_image }}
 
-# Enable epel
-RUN dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
-        dnf config-manager --set-enabled powertools
+# Enable epel (specifically for stream)
+RUN dnf upgrade -y && \
+    dnf install -y 'dnf-command(config-manager)' && \
+    dnf config-manager --set-enabled crb && \
+    dnf install -y epel-release epel-next-release
 
 # System Dependencies
 RUN bash -c 'dnf install -y sudo \

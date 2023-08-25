@@ -1,0 +1,3 @@
+template: 'cadquery.Dockerfile.template'
+base_image: 'jwp-build'
+image_name: 'cadquery'

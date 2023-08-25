@@ -1,0 +1,14 @@
+FROM {{ base_image }}
+
+RUN sudo apt update && \
+    sudo apt upgrade -y && \
+    sudo apt install -y curl && \
+    bash -c 'curl -L -o $HOME/mambaforge.sh "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"' && \
+    chmod +x $HOME/mambaforge.sh
+RUN bash -c '$HOME/mambaforge.sh -b -p $HOME/mambaforge'
+
+RUN bash -c 'source $HOME/mambaforge/bin/activate && \
+             conda create -y -q -n cq && \
+             conda activate cq && \
+             mamba install -y -q cadquery && \
+             mamba install -y -q -c cadquery -c conda-forge cq-editor'

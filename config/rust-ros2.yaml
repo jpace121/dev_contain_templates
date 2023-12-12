@@ -1,3 +1,3 @@
-template: 'base.Dockerfile.template'
+template: 'rust-ros2.Dockerfile.template'
 base_image: 'docker.io/ros:rolling-ros-base-jammy'
 image_name: 'rust-ros2'

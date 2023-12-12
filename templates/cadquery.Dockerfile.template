@@ -7,6 +7,7 @@ RUN sudo apt update && \
     chmod +x $HOME/mambaforge.sh
 RUN bash -c '$HOME/mambaforge.sh -b -p $HOME/mambaforge'
 
+RUN sudo apt install -y libglu1-mesa libgl1-mesa-dri mesa-common-dev libglu1-mesa-dev
 RUN bash -c 'source $HOME/mambaforge/bin/activate && \
              conda create -y -q -n cq && \
              conda activate cq && \

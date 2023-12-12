@@ -1,0 +1,2 @@
+{% include 'base.Dockerfile.template' %}
+{% include 'rust.Dockerfile.snippet' %}

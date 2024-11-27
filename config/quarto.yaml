@@ -1,0 +1,3 @@
+template: 'quarto.Dockerfile.template'
+base_image: 'localhost/jwp-build'
+image_name: 'jwp-quarto'

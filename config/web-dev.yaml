@@ -1,8 +1,3 @@
-template: 'apt-only.Dockerfile.template'
-base_image: 'jwp-build'
+template: 'wasm-web.Dockerfile.template'
+base_image: 'jwp-fedora'
 image_name: 'jwp-webdev'
-packages:
-   - nodejs
-   - npm
-   - leiningen
-   - clojure

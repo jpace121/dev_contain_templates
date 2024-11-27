@@ -1,0 +1,7 @@
+FROM {{ base_image }}
+
+RUN sudo dnf update -y && \
+    sudo dnf install -y nodejs yarnpkg openssl-devel curl
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+RUN /bin/bash -c "source $HOME/.cargo/env && rustup update"
+RUN /bin/bash -c "source $HOME/.cargo/env && cargo install wasm-pack cargo-generate"

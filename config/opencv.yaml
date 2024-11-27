@@ -1,0 +1,10 @@
+template: 'apt-only.Dockerfile.template'
+base_image: 'jwp-build'
+image_name: 'jwp-opencv'
+packages:
+    - cmake
+    - clang
+    - gcc
+    - libboost-all-dev
+    - libopencv-dev
+    - clang-format

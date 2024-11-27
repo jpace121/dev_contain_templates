@@ -1,0 +1,7 @@
+FROM {{ base_image }}
+
+RUN sudo apt update -y && \
+    sudo apt install -y wget && \
+    wget -P $HOME https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.537/quarto-1.4.537-linux-amd64.deb && \
+    sudo apt install -y $HOME/quarto-1.4.537-linux-amd64.deb && \
+    rm $HOME/quarto-*.deb

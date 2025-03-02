@@ -1,3 +1,0 @@
-template: 'base.Dockerfile.template'
-base_image: 'docker.io/library/ubuntu:16.04'
-image_name: 'jwp-1604'

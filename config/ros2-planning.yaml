@@ -1,3 +1,0 @@
-template: 'base.Dockerfile.template'
-base_image: 'docker.io/rosplanning/navigation2:main.release'
-image_name: 'ros2-planning'

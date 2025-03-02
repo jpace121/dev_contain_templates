@@ -1,3 +1,3 @@
 template: 'cadquery.Dockerfile.template'
-base_image: 'jwp-build'
+base_image: 'localhost/jwp-fedora:latest'
 image_name: 'cadquery'

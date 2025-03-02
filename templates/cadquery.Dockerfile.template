@@ -1,15 +1,14 @@
 FROM {{ base_image }}
 
-RUN sudo apt update && \
-    sudo apt upgrade -y && \
-    sudo apt install -y curl && \
-    bash -c 'curl -L -o $HOME/mambaforge.sh "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"' && \
-    chmod +x $HOME/mambaforge.sh
-RUN bash -c '$HOME/mambaforge.sh -b -p $HOME/mambaforge'
 
-RUN sudo apt install -y libglu1-mesa libgl1-mesa-dri mesa-common-dev libglu1-mesa-dev
-RUN bash -c 'source $HOME/mambaforge/bin/activate && \
-             conda create -y -q -n cq && \
-             conda activate cq && \
-             mamba install -y -q cadquery && \
-             mamba install -y -q -c cadquery -c conda-forge cq-editor'
+RUN sudo dnf upgrade -y && \
+    sudo dnf install -y mesa-libGLU mesa-libGL mesa-libGLU-devel qt5-qtbase qt5-qtwayland && \
+    sudo dnf install -y python3-pip python3-devel
+
+RUN bash -c 'curl -L -o ~/miniforge.sh "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"'
+RUN bash -c 'chmod +x ~/miniforge.sh && ~/miniforge.sh -b -p $HOME/miniforge'
+RUN bash -c 'source $HOME/miniforge/bin/activate && conda create -n cq && conda activate cq && mamba install cadquery'
+
+RUN curl -L -o ~/cq-editor.sh https://github.com/CadQuery/CQ-editor/releases/download/nightly/CQ-editor-master-Linux-x86_64.sh
+RUN chmod +x ~/cq-editor.sh
+RUN sh ~/cq-editor.sh -b

@@ -1,12 +1,5 @@
-# Clone emacs config.
-RUN git clone --recursive --depth 1 https://github.com/jpace121/evil-ed.git /home/{{ username }}/.emacs.d && \
-    bash -c "echo 'alias emc='\''emacsclient -t --alternate-editor=\"\"'\''' >> ~/.bashrc" && \
-    emacs --batch --load /home/{{ username }}/.emacs.d/init.el --eval '(progn (print "run emacs once for straight") (kill-emacs))' && \
-    rm -f /home/{{ username }}/.emacs
-
 # Configure vim
 COPY --chown={{ username }}:{{ user_id }} config/vimrc /home/{{ username }}/.vimrc
-
 
 # Configure tmux.
 COPY --chown={{ username }}:{{ user_id }} config/tmux.conf /home/{{ username }}/.tmux.conf

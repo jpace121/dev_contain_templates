@@ -1,4 +1,5 @@
 # Set up user.
+RUN userdel --remove ubuntu; exit 0
 RUN useradd -m -G sudo -s /bin/bash -u {{ user_id }} {{ username }}
 RUN bash -c 'echo "%sudo  ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers.d/container'
 RUN chmod 0440 /etc/sudoers.d/container

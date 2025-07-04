@@ -20,11 +20,6 @@ RUN bash -c 'export DEBIAN_FRONTEND=noninteractive && \
 COPY entrypoints/dev_contain_init_arm /dev_contain_init
 ENTRYPOINT ["/dev_contain_init"]
 
-
-# Set up attach command.
-COPY scripts/tmux-attach.bash /tmux-attach
-ENV DEV_CONTAIN_ATTACH_CMD=/tmux-attach
-
 # Change user and set up environment.
 USER {{ username }}
 {% include 'setup_env.Dockerfile.snippet' %}

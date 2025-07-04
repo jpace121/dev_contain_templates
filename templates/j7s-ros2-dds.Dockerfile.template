@@ -24,10 +24,6 @@ RUN bash -c 'export DEBIAN_FRONTEND=noninteractive && \
 # Set up entrypoint.
 {% include 'wait_entrypoint.Dockerfile.snippet' %}
 
-# Set up attach command.
-COPY scripts/tmux-attach.bash /tmux-attach
-ENV DEV_CONTAIN_ATTACH_CMD=/tmux-attach
-
 # Change user and set up environment.
 USER {{ username }}
 {% include 'setup_env.Dockerfile.snippet' %}

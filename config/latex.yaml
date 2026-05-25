@@ -3,3 +3,6 @@ base_image: 'jwp-fedora'
 image_name: 'jwp-latex'
 packages:
    - texlive-scheme-basic
+   - texlive-textpos
+   - python3
+   - texlive-lato
